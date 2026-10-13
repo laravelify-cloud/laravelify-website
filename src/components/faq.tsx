@@ -22,6 +22,10 @@ const questions = [
         a: 'As many as your server can hold. Each site has its own domain, PHP or Node version, database, workers, environment, and monitoring.',
     },
     {
+        q: 'Does it back up my data?',
+        a: 'Yes. Schedule database and folder backups to your own S3 bucket (Amazon S3, DigitalOcean Spaces, Cloudflare R2, Backblaze B2, Wasabi, MinIO), and restore a whole database, a single table, or one folder.',
+    },
+    {
         q: 'How do updates work?',
         a: 'Run the install command again, or sudo bash /opt/laravelify/scripts/update.sh. It downloads the latest release from GitHub, keeps your data, and does not reinstall PHP, MySQL, or Node. Your sites keep running.',
     },
