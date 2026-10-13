@@ -8,8 +8,8 @@ const steps = [
     },
     {
         title: 'Connect GitHub and add a site',
-        text: 'Create the GitHub App in one click, pick a repository and branch, and Laravelify writes the nginx, worker, and .env files for you.',
-        code: 'Groups → production → New website → Laravel',
+        text: 'Create the GitHub App in one click, pick a repository and branch (or start from an example project), and Laravelify writes the nginx, worker, and .env files for you.',
+        code: 'Groups → production → New website → pick a framework',
     },
     {
         title: 'Push to deploy',

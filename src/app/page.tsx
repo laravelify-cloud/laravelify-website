@@ -1,6 +1,7 @@
 import { BetaBanner } from '@/components/beta-banner';
 import { Faq } from '@/components/faq';
 import { Features } from '@/components/features';
+import { Frameworks } from '@/components/frameworks';
 import { Footer } from '@/components/footer';
 import { Hero } from '@/components/hero';
 import { HowItWorks } from '@/components/how-it-works';
@@ -31,6 +32,7 @@ export default function Home() {
                     </div>
                 </section>
 
+                <Frameworks />
                 <Features />
                 <HowItWorks />
                 <WhySelfHost />
