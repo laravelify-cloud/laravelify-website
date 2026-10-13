@@ -20,12 +20,12 @@ export function Hero() {
                 </a>
 
                 <h1 className="fade-up mx-auto mt-7 max-w-4xl text-[clamp(2.4rem,7vw,4.6rem)] leading-[1.02] font-bold tracking-[-0.045em] [animation-delay:60ms]">
-                    Deploy <span className="text-accent">Laravel</span> &amp; <span className="text-accent">Next.js</span>
+                    Deploy <span className="text-accent">Laravel</span>, <span className="text-accent">Next.js</span>, <span className="text-accent">Vue</span> &amp; more
                     <br className="hidden sm:block" /> to a server you own.
                 </h1>
 
                 <p className="fade-up mx-auto mt-6 max-w-2xl text-lg text-muted [animation-delay:120ms] sm:text-xl">
-                    Laravelify is a self-hosted control panel: push to GitHub and your site deploys, then watch live traffic, errors, attacks, and server
+                    Laravelify is a self-hosted control panel for backends, front ends, and full-stack apps: push to GitHub and your site deploys, then watch live traffic, errors, attacks, and server
                     load. No Docker, no per-seat pricing, no vendor lock-in.
                 </p>
 

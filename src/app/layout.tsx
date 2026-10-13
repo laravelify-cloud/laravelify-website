@@ -17,7 +17,7 @@ export const metadata: Metadata = {
         template: `%s · ${site.name}`,
     },
     description: site.description,
-    keywords: ['Laravel', 'Next.js', 'self-hosted', 'deployment', 'PaaS', 'Coolify alternative', 'server panel', 'open source'],
+    keywords: ['Laravel', 'Next.js', 'Vue', 'React', 'Angular', 'Nuxt', 'NestJS', 'Express', 'self-hosted', 'deployment', 'PaaS', 'Coolify alternative', 'server panel', 'open source'],
     alternates: { canonical: '/' },
     icons: {
         icon: [

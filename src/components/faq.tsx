@@ -15,7 +15,7 @@ const questions = [
     },
     {
         q: 'How is it different from Coolify?',
-        a: 'Laravelify is inspired by Coolify but focused on Laravel and Next.js, and it does not use Docker. Sites run on plain nginx, PHP-FPM, Supervisor, and PM2, which are lighter on small servers and familiar to Laravel developers.',
+        a: 'Laravelify is inspired by Coolify but built around PHP and Node.js, and it does not use Docker. Sites run on plain nginx, PHP-FPM, Supervisor, and PM2, which are lighter on small servers and familiar to Laravel developers.',
     },
     {
         q: 'Can I deploy more than one site?',

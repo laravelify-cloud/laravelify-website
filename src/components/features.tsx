@@ -2,7 +2,7 @@ import { Icon, type IconName } from './icon';
 
 const features: { icon: IconName; title: string; text: string }[] = [
     { icon: 'rocket', title: 'Git push to deploy', text: 'GitHub App or token, webhooks, live build logs, one-click redeploys and cancel.' },
-    { icon: 'layers', title: 'Laravel and Next.js', text: 'PHP 8.0–8.5 with Supervisor workers and Reverb, or Node 20–24 standalone builds under PM2.' },
+    { icon: 'layers', title: 'Backend, frontend, full-stack', text: 'Laravel, PHP, Express, NestJS, React, Vue, Angular, Svelte, Astro, Next.js, Nuxt, and SvelteKit, each run the way it should.' },
     { icon: 'chart', title: 'Live monitoring', text: 'Requests, p95 response times, uptime, top routes, and a request feed that updates every 2 seconds.' },
     { icon: 'bug', title: 'Grouped issues', text: 'Laravel errors grouped by exception and line, with stack traces. Resolve, ignore, get told when they return.' },
     { icon: 'shield', title: 'Attack detection', text: 'SQL injection, XSS, path traversal, scanners, and attack tools flagged. Block an IP in one click.' },

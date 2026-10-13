@@ -8,7 +8,7 @@ import { Navbar } from '@/components/navbar';
 import { Sponsors } from '@/components/sponsors';
 import { WhySelfHost } from '@/components/why-self-host';
 
-const stack = ['Laravel', 'Next.js', 'nginx', 'PHP 8.0–8.5', 'MySQL 8.4', 'Redis', 'Node 20–24', 'PM2', 'Supervisor', 'Cloudflare', 'GitHub', 'Telegram'];
+const stack = ['Laravel', 'PHP', 'Node.js', 'Express', 'NestJS', 'React', 'Vue.js', 'Angular', 'Svelte', 'Astro', 'Next.js', 'Nuxt', 'nginx', 'PHP 8.0–8.5', 'MySQL 8.4', 'Redis', 'Node 20–24', 'PM2', 'Supervisor', 'Cloudflare', 'GitHub', 'Telegram'];
 
 export default function Home() {
     return (
