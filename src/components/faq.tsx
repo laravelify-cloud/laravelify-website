@@ -23,7 +23,7 @@ const questions = [
     },
     {
         q: 'How do updates work?',
-        a: 'One command: sudo bash /opt/laravelify/scripts/update.sh. It downloads the latest release from GitHub and keeps your data. Your sites keep running.',
+        a: 'Run the install command again, or sudo bash /opt/laravelify/scripts/update.sh. It downloads the latest release from GitHub, keeps your data, and does not reinstall PHP, MySQL, or Node. Your sites keep running.',
     },
 ];
 

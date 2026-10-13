@@ -2,7 +2,7 @@ import { Icon, type IconName } from './icon';
 
 const features: { icon: IconName; title: string; text: string }[] = [
     { icon: 'rocket', title: 'Git push to deploy', text: 'GitHub App or token, webhooks, live build logs, one-click redeploys and cancel.' },
-    { icon: 'layers', title: 'Backend, frontend, full-stack', text: 'Laravel, PHP, Express, NestJS, React, Vue, Angular, Svelte, Astro, Next.js, Nuxt, and SvelteKit, each run the way it should.' },
+    { icon: 'layers', title: 'Backend, frontend, full-stack', text: 'Laravel, PHP, Express, NestJS, React, Vue, Angular, Svelte, Astro, Next.js, Nuxt, and SvelteKit, each run the way it should. No code yet? Start from an example project.' },
     { icon: 'chart', title: 'Live monitoring', text: 'Requests, p95 response times, uptime, top routes, and a request feed that updates every 2 seconds.' },
     { icon: 'bug', title: 'Grouped issues', text: 'Laravel errors grouped by exception and line, with stack traces. Resolve, ignore, get told when they return.' },
     { icon: 'shield', title: 'Attack detection', text: 'SQL injection, XSS, path traversal, scanners, and attack tools flagged. Block an IP in one click.' },
@@ -21,8 +21,8 @@ export function Features() {
             <div className="container-page">
                 <div className="mx-auto max-w-2xl text-center">
                     <p className="eyebrow">Features</p>
-                    <h2 className="section-title mt-3">Everything a Laravel server needs, in one panel</h2>
-                    <p className="mt-4 text-lg text-muted">From the first push to the 3 a.m. alert. Built with Laravel, Livewire, and Tailwind, for people who ship Laravel.</p>
+                    <h2 className="section-title mt-3">Everything a server needs, in one panel</h2>
+                    <p className="mt-4 text-lg text-muted">From the first push to the 3 a.m. alert. Built with Laravel, Livewire, and Tailwind, for people who ship Laravel, Node.js, and front ends.</p>
                 </div>
 
                 <div className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
