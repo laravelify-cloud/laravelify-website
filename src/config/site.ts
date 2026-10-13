@@ -7,7 +7,7 @@ const repository = 'laravelify-cloud/laravelify';
 export const site = {
     name: 'Laravelify',
     url: 'https://laravelify.cloud',
-    tagline: 'Self-hosted deploys for Laravel, Next.js, Vue & more',
+    tagline: 'Self-hosted deploys for any app: Laravel, Node.js, React, Vue, Next.js & more',
     description:
         'Laravelify is an open-source, self-hosted control panel that deploys Laravel, PHP, Node.js, React, Vue, Angular, Next.js, Nuxt, and more to your own Ubuntu server, with live monitoring, attack detection, and Telegram alerts.',
 
