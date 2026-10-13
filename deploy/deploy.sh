@@ -6,6 +6,9 @@ set -euo pipefail
 
 cd "$(dirname "$0")/.."
 
+# The folder is often owned by another user (www-data); git refuses it until it is trusted.
+git config --global --get-all safe.directory | grep -qxF "$PWD" || git config --global --add safe.directory "$PWD"
+
 echo "→ Pulling the latest code"
 git pull --ff-only
 
