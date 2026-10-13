@@ -1,0 +1,46 @@
+name: Deploy
+
+# Deploys laravelify.cloud to the server after every push to main.
+# Needs these repository secrets (Settings, Secrets and variables, Actions):
+#   SERVER_HOST     the server's IP or host name
+#   SERVER_USER     the user that runs deploy.sh (root on the current server)
+#   SERVER_SSH_KEY  a private key whose public key is in that user's ~/.ssh/authorized_keys
+#   SERVER_PORT     optional, defaults to 22
+# Without them the job skips itself, so forks and new clones stay green.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy over SSH
+        env:
+          SERVER_HOST: ${{ secrets.SERVER_HOST }}
+          SERVER_USER: ${{ secrets.SERVER_USER }}
+          SERVER_SSH_KEY: ${{ secrets.SERVER_SSH_KEY }}
+          SERVER_PORT: ${{ secrets.SERVER_PORT }}
+        run: |
+          if [ -z "$SERVER_HOST" ] || [ -z "$SERVER_USER" ] || [ -z "$SERVER_SSH_KEY" ]; then
+            echo "::notice::Deploy skipped: add the SERVER_HOST, SERVER_USER, and SERVER_SSH_KEY secrets."
+            exit 0
+          fi
+
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$SERVER_SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -p "${SERVER_PORT:-22}" -H "$SERVER_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+
+          ssh -i ~/.ssh/deploy_key -p "${SERVER_PORT:-22}" "$SERVER_USER@$SERVER_HOST" \
+            'cd /var/www/laravelify-website && bash deploy/deploy.sh'
