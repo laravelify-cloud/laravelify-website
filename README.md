@@ -26,6 +26,15 @@ npm run build      # production build (standalone)
 | `/github` | the GitHub repository |
 | `/sponsor` | GitHub Sponsors |
 
+## Deploy on a plain Ubuntu server
+
+`deploy/` has everything: `deploy.sh` (pull, build, reload), `ecosystem.config.cjs` (PM2), and `nginx.conf`.
+After the first setup, every update is:
+
+```bash
+cd /var/www/laravelify-website && bash deploy/deploy.sh
+```
+
 ## Deploy with Laravelify
 
 This site is deployed by Laravelify itself, as a **Next.js** website:
