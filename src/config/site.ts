@@ -30,4 +30,8 @@ export const site = {
     // GitHub Sponsors needs the account enabled at github.com/sponsors.
     sponsorUrl: 'https://github.com/sponsors/laravelify-cloud',
     sponsorEmail: 'sponsors@laravelify.cloud',
+
+    // Buy Me a Coffee: the page, the floating widget, and the supporters list (BMC_ACCESS_TOKEN on the server).
+    coffeeId: 'arshadarsh01',
+    coffeeUrl: 'https://buymeacoffee.com/arshadarsh01',
 } as const;

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { Instrument_Sans } from 'next/font/google';
+import { CoffeeWidget } from '@/components/coffee-widget';
 import { site } from '@/config/site';
 import './globals.css';
 
@@ -52,7 +53,10 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
     return (
         <html lang="en" className={instrument.variable}>
-            <body>{children}</body>
+            <body>
+                {children}
+                <CoffeeWidget />
+            </body>
         </html>
     );
 }

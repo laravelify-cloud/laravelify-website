@@ -1,5 +1,6 @@
 import { site } from '@/config/site';
 import { backers, sponsorTiers, type Sponsor, type SponsorTier } from '@/data/sponsors';
+import { CoffeeSupporters } from './coffee-supporters';
 import { Icon } from './icon';
 
 const tierStyle: Record<SponsorTier['id'], { grid: string; height: string; logo: string }> = {
@@ -51,6 +52,9 @@ export function Sponsors() {
                         <a href={site.sponsorUrl} className="btn btn-primary">
                             <Icon name="heart" className="size-4" /> Become a sponsor
                         </a>
+                        <a href={site.coffeeUrl} target="_blank" rel="noopener" className="btn btn-ghost">
+                            <Icon name="coffee" className="size-4" /> Buy me a coffee
+                        </a>
                         <a href={`mailto:${site.sponsorEmail}`} className="btn btn-ghost">
                             Company sponsorship
                         </a>
@@ -81,6 +85,8 @@ export function Sponsors() {
                             </div>
                         );
                     })}
+
+                    <CoffeeSupporters />
 
                     <div className="card flex flex-col items-center gap-5 p-8 text-center">
                         <h3 className="text-sm font-semibold tracking-[0.08em] text-dim uppercase">Backers</h3>

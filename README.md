@@ -13,9 +13,27 @@ npm run build      # production build (standalone)
 | What | Where |
 | --- | --- |
 | GitHub repository, version, beta flag, docs and install URLs | `src/config/site.ts` |
-| Sponsors and backers | `src/data/sponsors.ts` (logos in `public/sponsors/`) |
+| Sponsors and backers | `src/data/sponsors.ts` (logos in `public/sponsors/`); coffee supporters come from the Buy Me a Coffee API |
 | Sections | `src/components/*` |
 | Colors and fonts | `src/app/globals.css` |
+
+## Buy Me a Coffee supporters
+
+The Sponsors section lists supporters from [buymeacoffee.com/arshadarsh01](https://buymeacoffee.com/arshadarsh01), and every page has the floating coffee button.
+
+1. **Token:** Buy Me a Coffee → Integrations → Developer dashboard → create an API token.
+2. **Webhook:** Integrations → Webhooks → Create webhook. Endpoint URL `https://laravelify.cloud/api/buymeacoffee`, events: new supporter (and refunds). Copy its secret.
+3. On the server, in the repository folder, create `.env.production.local` (never committed):
+
+   ```bash
+   BMC_ACCESS_TOKEN=your-api-token
+   BMC_WEBHOOK_SECRET=your-webhook-secret
+   ```
+
+4. Run `bash deploy/deploy.sh` once. The build and PM2 both read the file.
+
+The list is cached for an hour, and a signed webhook call refreshes it at once. Private supports show as "Someone" without their message; refunded ones are left out. Without a token the section shows a "Buy me a coffee" invitation.
+If you deploy with Laravelify instead, put the two values in the website's **Environment** tab.
 
 ## Redirects
 
