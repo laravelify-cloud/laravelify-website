@@ -1,10 +1,12 @@
-import { revalidateTag } from 'next/cache';
-import { supportersTag, validWebhookSignature } from '@/lib/buymeacoffee';
+import { revalidatePath } from 'next/cache';
+import { applyWebhookEvent, validWebhookSignature } from '@/lib/buymeacoffee';
+
+/** Webhook calls are handled one at a time, so two events never write the file together. */
+let queue: Promise<unknown> = Promise.resolve();
 
 /**
- * Buy Me a Coffee webhook (Integrations → Webhooks → Endpoint URL: https://laravelify.cloud/api/buymeacoffee).
- * A signed call expires the cached supporters, so the next visit shows the new one.
- * Nothing from the body is stored.
+ * Buy Me a Coffee webhook (Webhooks → Endpoint URL: https://laravelify.cloud/api/buymeacoffee).
+ * A signed event updates the saved supporters, and the home page is rebuilt on the next visit.
  */
 export async function POST(request: Request): Promise<Response> {
     const body = await request.text();
@@ -13,7 +15,19 @@ export async function POST(request: Request): Promise<Response> {
         return Response.json({ ok: false, error: 'Invalid signature.' }, { status: 401 });
     }
 
-    revalidateTag(supportersTag, { expire: 0 });
+    let event: unknown;
 
-    return Response.json({ ok: true });
+    try {
+        event = JSON.parse(body);
+    } catch {
+        return Response.json({ ok: false, error: 'The body is not JSON.' }, { status: 400 });
+    }
+
+    const run = queue.then(() => applyWebhookEvent(event as Parameters<typeof applyWebhookEvent>[0]));
+    queue = run.catch(() => undefined);
+    const result = await run;
+
+    revalidatePath('/');
+
+    return Response.json({ ok: true, result });
 }

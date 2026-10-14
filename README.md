@@ -13,27 +13,46 @@ npm run build      # production build (standalone)
 | What | Where |
 | --- | --- |
 | GitHub repository, version, beta flag, docs and install URLs | `src/config/site.ts` |
-| Sponsors and backers | `src/data/sponsors.ts` (logos in `public/sponsors/`); coffee supporters come from the Buy Me a Coffee API |
+| Sponsors and backers | `src/data/sponsors.ts` (logos in `public/sponsors/`); coffee supporters are saved from the Buy Me a Coffee webhook |
 | Sections | `src/components/*` |
 | Colors and fonts | `src/app/globals.css` |
 
 ## Buy Me a Coffee supporters
 
-The Sponsors section lists supporters from [buymeacoffee.com/arshadarsh01](https://buymeacoffee.com/arshadarsh01), and every page has the floating coffee button.
+The Sponsors section shows supporters of [buymeacoffee.com/arshadarsh01](https://buymeacoffee.com/arshadarsh01), and every page has the floating coffee button.
 
-1. **Token:** Buy Me a Coffee → Integrations → Developer dashboard → create an API token.
-2. **Webhook:** Integrations → Webhooks → Create webhook. Endpoint URL `https://laravelify.cloud/api/buymeacoffee`, events: new supporter (and refunds). Copy its secret.
-3. On the server, in the repository folder, create `.env.production.local` (never committed):
+Buy Me a Coffee has no API for reading supporters, only webhooks. So the site saves each supporter when the webhook arrives, in `storage/bmc-supporters.json` (not committed, kept across deploys). Only the name, the number of coffees, the message, and the membership level are saved: no email addresses and no amounts.
+
+1. **Webhook:** Buy Me a Coffee → Settings → Webhooks → Create webhook.
+   - Endpoint URL: `https://laravelify.cloud/api/buymeacoffee`
+   - Events: `donation.created`, `donation.refunded`, `membership.started`, `membership.updated`, `membership.cancelled`, `membership.paused`, `recurring_donation.started`, `recurring_donation.updated`, `recurring_donation.cancelled` (extras, commissions, and wishlist events work too)
+   - Copy the webhook's signing secret.
+2. On the server, in the repository folder, create `.env.production.local` (never committed):
 
    ```bash
-   BMC_ACCESS_TOKEN=your-api-token
-   BMC_WEBHOOK_SECRET=your-webhook-secret
+   BMC_WEBHOOK_SECRET=your-webhook-signing-secret
    ```
 
-4. Run `bash deploy/deploy.sh` once. The build and PM2 both read the file.
+3. Run `bash deploy/deploy.sh` once, so the running site reads the secret.
+4. On the webhook page, use **Send test event**. Test events are saved but hidden; add `BMC_SHOW_TEST_EVENTS=true` to the same file (and deploy again) to see them on the page while you check.
 
-The list is cached for an hour, and a signed webhook call refreshes it at once. Private supports show as "Someone" without their message; refunded ones are left out. Without a token the section shows a "Buy me a coffee" invitation.
-If you deploy with Laravelify instead, put the two values in the website's **Environment** tab.
+What the page shows:
+
+- Members and monthly supporters first, then the latest 12 coffee supporters.
+- Anonymous supporters show as "Someone", and a hidden message stays hidden.
+- A refund removes the support; a cancelled or paused membership removes the member.
+
+Supporters from before the webhook was set up are not sent by Buy Me a Coffee. To show them, add them to `storage/bmc-supporters.json` by hand, in the same format the webhook writes:
+
+```json
+{ "supporters": [
+  { "key": "manual:1", "kind": "coffee", "name": "Alex", "coffees": 3, "note": "Keep it up!", "level": null, "createdAt": 1760400000, "test": false }
+] }
+```
+
+`kind` is `coffee`, `member`, or `monthly`, and `createdAt` is a Unix time in seconds. Run `bash deploy/deploy.sh` after editing it.
+
+If you deploy with Laravelify instead, add `BMC_WEBHOOK_SECRET` in the website's **Environment** tab, and set `BMC_DATA_FILE` to a file outside the release folder (for example `/var/www/laravelify-website-data/bmc-supporters.json`).
 
 ## Redirects
 

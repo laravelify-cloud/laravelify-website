@@ -3,8 +3,8 @@ const fs = require('fs');
 const path = require('path');
 
 /**
- * Secrets for the running site (BMC_ACCESS_TOKEN, BMC_WEBHOOK_SECRET) from .env.production.local
- * in the repository. The file is not committed; `next build` reads the same file.
+ * Secrets for the running site (BMC_WEBHOOK_SECRET) from .env.production.local in the repository.
+ * The file is not committed; `next build` reads the same file.
  */
 function localEnv() {
     const file = path.join(__dirname, '..', '.env.production.local');
@@ -34,6 +34,8 @@ module.exports = {
             cwd: path.join(__dirname, '..', '.next', 'standalone'),
             script: 'server.js',
             env: {
+                // Buy Me a Coffee supporters, saved by the webhook. Outside .next so deploys keep it.
+                BMC_DATA_FILE: path.join(__dirname, '..', 'storage', 'bmc-supporters.json'),
                 ...localEnv(),
                 NODE_ENV: 'production',
                 PORT: 3000,

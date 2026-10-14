@@ -16,6 +16,8 @@ echo "→ Installing dependencies"
 npm ci --no-audit --no-fund
 
 echo "→ Building"
+# The build reads the saved Buy Me a Coffee supporters from the same file the running site writes.
+export BMC_DATA_FILE="$PWD/storage/bmc-supporters.json"
 npm run build
 
 # Next.js standalone output needs the static files next to server.js.

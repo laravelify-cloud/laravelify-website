@@ -31,7 +31,7 @@ export const site = {
     sponsorUrl: 'https://github.com/sponsors/laravelify-cloud',
     sponsorEmail: 'sponsors@laravelify.cloud',
 
-    // Buy Me a Coffee: the page, the floating widget, and the supporters list (BMC_ACCESS_TOKEN on the server).
+    // Buy Me a Coffee: the page, the floating widget, and the supporters list (saved from its webhook, see README).
     coffeeId: 'arshadarsh01',
     coffeeUrl: 'https://buymeacoffee.com/arshadarsh01',
 } as const;
