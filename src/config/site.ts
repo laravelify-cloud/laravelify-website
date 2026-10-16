@@ -12,7 +12,7 @@ export const site = {
         'Laravelify is an open-source, self-hosted control panel that deploys Laravel, PHP, Node.js, React, Vue, Angular, Next.js, Nuxt, and more to your own Ubuntu server, with live monitoring, attack detection, and Telegram alerts.',
 
     // Shown in the beta banner and the hero badge. Keep in step with the panel's VERSION file.
-    version: '0.3.0-beta.22',
+    version: '0.3.0-beta.40',
     beta: true,
 
     repository,

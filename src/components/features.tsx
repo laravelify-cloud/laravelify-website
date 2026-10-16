@@ -11,7 +11,7 @@ const features: { icon: IconName; title: string; text: string }[] = [
     { icon: 'pulse', title: 'Heartbeats', text: 'A ping URL for every cron job, and an alert the moment one stops running.' },
     { icon: 'cpu', title: 'Server monitoring', text: 'Live CPU, memory, load, and network, history up to 30 days, services, and top processes.' },
     { icon: 'cloud', title: 'Cloudflare tunnels', text: 'HTTPS without open ports. One tunnel serves many sites, and the server IP stays private.' },
-    { icon: 'lock', title: 'Secure by default', text: 'One admin, two-factor required, secrets revealed only with your code, least-privilege host access.' },
+    { icon: 'lock', title: 'Secure by default', text: 'One admin, two-factor required, secrets revealed only with your code. The panel runs as its own user, and each website runs as its own user.' },
     { icon: 'terminal', title: 'Built-in tools', text: 'File manager, terminal with Artisan and PM2 autocomplete, logs, health checks, phpMyAdmin sign-in.' },
     { icon: 'key', title: 'Site security', text: 'Hide from search engines, refuse AI and SEO crawlers, basic auth with open paths, blocked IPs.' },
 ];
