@@ -5,11 +5,12 @@ import { Frameworks } from '@/components/frameworks';
 import { Footer } from '@/components/footer';
 import { Hero } from '@/components/hero';
 import { HowItWorks } from '@/components/how-it-works';
+import { InstallBuilder } from '@/components/install-builder';
 import { Navbar } from '@/components/navbar';
 import { Sponsors } from '@/components/sponsors';
 import { WhySelfHost } from '@/components/why-self-host';
 
-const stack = ['Laravel', 'PHP', 'Node.js', 'Express', 'NestJS', 'React', 'Vue.js', 'Angular', 'Svelte', 'Astro', 'Next.js', 'Nuxt', 'nginx', 'PHP 8.0–8.5', 'MySQL 8.4', 'Redis', 'Node 20–24', 'PM2', 'Supervisor', 'Cloudflare', 'GitHub', 'Telegram'];
+const stack = ['Laravel', 'PHP', 'Node.js', 'Express', 'NestJS', 'React', 'Vue.js', 'Angular', 'Svelte', 'Astro', 'Next.js', 'Nuxt', 'nginx', 'PHP 8.0–8.5', 'MySQL 8.4', 'Redis', 'Node 20, 22, 24', 'PM2', 'Supervisor', 'Cloudflare', 'GitHub', 'Telegram'];
 
 export default function Home() {
     return (
@@ -35,6 +36,7 @@ export default function Home() {
                 <Frameworks />
                 <Features />
                 <HowItWorks />
+                <InstallBuilder />
                 <WhySelfHost />
                 <Sponsors />
                 <Faq />

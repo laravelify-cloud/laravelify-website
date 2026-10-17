@@ -12,7 +12,10 @@ const features: { icon: IconName; title: string; text: string }[] = [
     { icon: 'cpu', title: 'Server monitoring', text: 'Live CPU, memory, load, and network, history up to 30 days, services, and top processes.' },
     { icon: 'cloud', title: 'Cloudflare tunnels', text: 'HTTPS without open ports. One tunnel serves many sites, and the server IP stays private.' },
     { icon: 'lock', title: 'Secure by default', text: 'One admin, two-factor required, secrets revealed only with your code. The panel runs as its own user, and each website runs as its own user.' },
-    { icon: 'terminal', title: 'Built-in tools', text: 'File manager, terminal with Artisan and PM2 autocomplete, logs, health checks, phpMyAdmin sign-in.' },
+    { icon: 'terminal', title: 'Live terminal and tools', text: 'A real console for every site: answer prompts, Ctrl+C, Artisan and PM2 autocomplete. File manager with trash, logs, health checks.' },
+    { icon: 'server', title: 'Database tool', text: 'Browse millions of rows in a fast grid, filter like a spreadsheet, edit with undo, follow foreign keys, run SQL, and read encrypted columns decrypted.' },
+    { icon: 'git', title: 'Deployments board', text: 'Every website as a card with its latest deploy, commit, and time. Watch a build live, or deploy again in one click.' },
+    { icon: 'plug', title: 'MCP for AI assistants', text: 'Connect Claude Code, Claude Desktop, or Cursor and ask it to deploy a repository, read a log, or set a variable.' },
     { icon: 'key', title: 'Site security', text: 'Hide from search engines, refuse AI and SEO crawlers, basic auth with open paths, blocked IPs.' },
 ];
 

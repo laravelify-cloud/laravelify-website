@@ -8,6 +8,7 @@ export const navLinks = [
     { label: 'Frameworks', href: '/#frameworks' },
     { label: 'Features', href: '/#features' },
     { label: 'How it works', href: '/#how-it-works' },
+    { label: 'Install', href: '/#install' },
     { label: 'Sponsors', href: '/#sponsors' },
     { label: 'FAQ', href: '/#faq' },
     { label: 'Docs', href: site.docsUrl },
