@@ -40,7 +40,14 @@ jobs:
           install -m 700 -d ~/.ssh
           printf '%s\n' "$SERVER_SSH_KEY" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
-          ssh-keyscan -p "${SERVER_PORT:-22}" -H "$SERVER_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+          # A host behind Cloudflare's proxy (orange cloud) or reached only through a tunnel has no
+          # SSH from the internet: SERVER_HOST must be the server's own IP or a DNS-only name.
+          if ! ssh-keyscan -T 15 -p "${SERVER_PORT:-22}" -H "$SERVER_HOST" >> ~/.ssh/known_hosts 2>/tmp/keyscan.log \
+            || ! grep -q . ~/.ssh/known_hosts; then
+            cat /tmp/keyscan.log
+            echo "::error::No SSH answer from SERVER_HOST on port ${SERVER_PORT:-22}. Use the server's own IP (not a Cloudflare-proxied name), and check that the port is open."
+            exit 1
+          fi
 
-          ssh -i ~/.ssh/deploy_key -p "${SERVER_PORT:-22}" "$SERVER_USER@$SERVER_HOST" \
+          ssh -o BatchMode=yes -o ConnectTimeout=20 -i ~/.ssh/deploy_key -p "${SERVER_PORT:-22}" "$SERVER_USER@$SERVER_HOST" \
             'cd /var/www/laravelify-website && bash deploy/deploy.sh'
