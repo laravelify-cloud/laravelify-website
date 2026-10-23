@@ -25,7 +25,7 @@ The website at **[laravelify.cloud](https://laravelify.cloud)**, the home of [La
 | Hero | `hero.tsx`, `install-command.tsx`, `panel-preview.tsx` | The pitch, the one-line install command with a copy button, and a preview of the panel |
 | Works with | `app/page.tsx` | The frameworks and tools Laravelify runs |
 | Frameworks | `frameworks.tsx` | Every app type, and how each one runs on the server |
-| Features | `features.tsx` | Deploys, database tool, backups, monitoring, alerts, security, tools |
+| Features | `features.tsx` | Deploys, VS Code with AI agents and Live Server, database tool, backups, monitoring, alerts, security, tools |
 | How it works | `how-it-works.tsx` | Install, connect GitHub, push to deploy |
 | **Install command builder** | `install-builder.tsx` | Pick the PHP-FPM and Node.js versions (and, optionally, the domains), copy the generated command, and see the steps the installer will show |
 | Why self-host | `why-self-host.tsx` | Why to run your apps on your own server |
