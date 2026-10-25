@@ -6,6 +6,7 @@ const features: { icon: IconName; title: string; text: string }[] = [
     { icon: 'backup', title: 'S3 backups', text: 'Databases one by one and folders with excludes, hourly or daily, to your own bucket. Restore a database, one table, or one folder.' },
     { icon: 'chart', title: 'Live monitoring', text: 'Requests, p95 response times, uptime, top routes, and a request feed that updates every 2 seconds.' },
     { icon: 'bug', title: 'Grouped issues', text: 'Laravel errors grouped by exception and line, with stack traces. Resolve, ignore, get told when they return.' },
+    { icon: 'bug', title: 'Error tracking with GlitchTip', text: 'Server and browser errors from every site, on your own server. One click adds the Sentry SDK to the code, commits, and deploys.' },
     { icon: 'shield', title: 'Attack detection', text: 'SQL injection, XSS, path traversal, scanners, and attack tools flagged. Block an IP in one click.' },
     { icon: 'bell', title: 'Telegram alerts', text: 'Deploys, downtime, crashed workers, error spikes, slow responses, attacks, disk, and patches.' },
     { icon: 'pulse', title: 'Heartbeats', text: 'A ping URL for every cron job, and an alert the moment one stops running.' },
